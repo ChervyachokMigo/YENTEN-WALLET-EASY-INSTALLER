@@ -9,6 +9,9 @@ Installer download wallet 4.0.2 and install blockchain 17.02.21
 2. Enter destination directory of YENTEN Wallet
 3. Wait end program
 4. <b>Choose 'data' folder under wallet directory when wallet will start</b>
+
+<img src=https://i.imgur.com/7JL0gGo.png>
+  
 6. Enjoy to use!
 
 <h2>DOWNLOAD</h2>
