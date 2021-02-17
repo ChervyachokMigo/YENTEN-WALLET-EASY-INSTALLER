@@ -57,7 +57,7 @@ unrar.exe x -idd -y -o+ -ilog "%InstallDir%\blockchain.rar" *.* "%InstallDir%\da
 
 rem delete tmp files
 del /F /Q "%InstallDir%\blockchain.rar"
-del /F /Q "%InstallDir%\yenten-4.0.2-win64-win64.zip"
+del /F /Q "%InstallDir%\yenten-4.0.2-win64.zip"
 del /F /Q .wget-hsts
 rmdir "%InstallDir%\yenten-4.0.2-win64"
 
