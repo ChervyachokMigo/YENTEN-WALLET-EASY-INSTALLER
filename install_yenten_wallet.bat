@@ -1,88 +1,95 @@
-@echo off
-setlocal enableextensions
-color 9
+@ECHO off                               
+COLOR 9
+CLS
+SETLOCAL enableextensions
 
-cls
+ECHO #######################################
+ECHO # Welcome to YENTEN Wallet Installer! #
+ECHO #######################################
+ECHO #
 
-echo #######################################
-echo # Welcome to YENTEN Wallet Installer! #
-echo #######################################
-echo #
-set /P tempdestination="# Enter destination (C:\YENTEN Wallet): "
-IF "%tempdestination%" == "" (
-	set tempdestination=C:\YENTEN Wallet
-)
+SET /P TempDestination=# Enter destination (C:\YENTEN Wallet): 
+IF "%TempDestination%"=="" (
+SET TempDestination=C:\YENTEN Wallet   
+)     
+ECHO #
+ECHO # Creating Folder...
+ECHO #
+MD "%TempDestination%"
 
-:tryagain
-if exist "%tempdestination%" (
-  if %PROCESSOR_ARCHITECTURE%==x86 (
-    echo #
-	echo # Buy a computer
-	echo #
-	) else (
-	 cls
-	  echo #############################
-	  echo # Downloading Wallet App... #
-	  echo #############################
-	  echo #
-	  wget.exe -P "%installdir%" -nc https://github.com/yentencoin/yenten/releases/download/4.0.1/yenten-4.0.1.2-win64.zip  -q --show-progress
-	  echo #
-	  echo ############################
-	  echo # Extracting Wallet App... #
-	  echo ############################
-	  echo #
-	  unzip.exe "%installdir%\yenten-4.0.1.2-win64.zip" -d "%installdir%"
+cd /D %TempDestination%
+SET InstallDir=%CD%
+CHDIR /D %~dp0
 
-	  rem Make data directory
-	  MD "%installdir%\data"
-	  
-	  cls
-	  echo ###############################################
-	  echo # Downloading YENTEN Blockchain 17.02.2021... #
-	  echo ###############################################
-	  echo #
-	  wget -O "%installdir%\blockchain.rar" "https://www.dropbox.com/s/w5emmxsqg0f3ymv/yenten_blockchain_data_170221.rar?dl=1" -q --show-progress
-	  
-	  echo #
-	  echo ###############################################
-	  echo Extracting YENTEN Blockchain...
-	  echo ###############################################
-	  echo #
-	  unrar.exe x -idd -y -o+ -ilog "%installdir%\blockchain.rar" *.* "%installdir%\data\"
-	  
-	  rem delete tmp files
-	  del /F /Q "%installdir%\blockchain.rar"
-	  del /F /Q "%installdir%\yenten-4.0.1.2-win64.zip"
-	  del /F /Q .wget-hsts
-	  
-	  rem create icon
-	  nircmd shortcut "%installdir%\yenten-qt.exe" "~$folder.desktop$" "YENTEN Wallet" "" "%installdir%\yenten-qt.exe" 
-	  	  
-	  cls
-	  echo ######################
-	  echo # Starting Wallet... #
-	  echo ######################
+ECHO # %InstallDir%
 
-	  start "YENTEN Wallet" /D "%installdir%" /B yenten-qt.exe -choosedir
-	  
-	  echo #
-	  echo #########################
-	  echo # Installation complete #
-	  echo # Enjoy CPU-MINING!     #
-	  echo #########################
-	  echo #
-	)
- ) else (
-	  echo #
-	  echo # Creating Folder...
-	  echo #
-	  MD "%tempdestination%"
-	  cd %tempdestination%
-	  SET installdir=%cd%\%tempdestination%
-	  cd %~dp0
-	  goto tryagain
-	)
+CLS
+ECHO #############################
+ECHO # Downloading Wallet App... #
+ECHO #############################
+ECHO #
+wget.exe -P "%InstallDir%" -nc https://github.com/yentencoin/yenten/releases/download/4.0.1/yenten-4.0.1.2-win64.zip  -q --show-progress
+	
+ECHO #
+ECHO ############################
+ECHO # Extracting Wallet App... #
+ECHO ############################
+ECHO #
+unzip.exe "%InstallDir%\yenten-4.0.1.2-win64.zip" -d "%InstallDir%"
+
+rem Make data directory
+MD "%InstallDir%\data"
+
+CLS
+ECHO ###############################################
+ECHO # Downloading YENTEN Blockchain 17.02.2021... #
+ECHO ###############################################
+ECHO #
+wget -O "%InstallDir%\blockchain.rar" "https://www.dropbox.com/s/w5emmxsqg0f3ymv/yenten_blockchain_data_170221.rar?dl=1" -q --show-progress
+
+ECHO #
+ECHO ###############################################
+ECHO Extracting YENTEN Blockchain...
+ECHO ###############################################
+ECHO #
+unrar.exe x -idd -y -o+ -ilog "%InstallDir%\blockchain.rar" *.* "%InstallDir%\data\"
+
+rem delete tmp files
+del /F /Q "%InstallDir%\blockchain.rar"
+del /F /Q "%InstallDir%\yenten-4.0.1.2-win64.zip"
+del /F /Q .wget-hsts
+
+rem create icon
+nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "YENTEN Wallet" "" "%InstallDir%\yenten-qt.exe" 
+nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "CHOOSE DATA - YENTEN Wallet AND START WALLET" "-choosedir" "%InstallDir%\yenten-qt.exe" 
+  
+CLS
+ECHO ######################
+ECHO # Starting Wallet... #
+ECHO ######################
+
+start "YENTEN Wallet" /D "%InstallDir%" /B yenten-qt.exe -choosedir
+
+COLOR C
+
+ECHO #
+ECHO #################################################
+ECHO #  Choose 'data' folder under wallet directory  #
+ECHO #  when wallet will start and prompt it         #
+ECHO #################################################
+
+pause
+
+CLS
+COLOR A
+
+ECHO #########################
+ECHO # Installation complete #
+ECHO # Enjoy CPU-MINING!     #
+ECHO #########################        
+                   
+pause
 
 endlocal
 
-pause
+exit /B
