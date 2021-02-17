@@ -28,14 +28,14 @@ ECHO #############################
 ECHO # Downloading Wallet App... #
 ECHO #############################
 ECHO #
-wget.exe -P "%InstallDir%" -nc https://github.com/yentencoin/yenten/releases/download/4.0.1/yenten-4.0.1.2-win64.zip  -q --show-progress
+wget.exe -P "%InstallDir%" -nc https://github.com/yentencoin/yenten/releases/download/4.0.2/yenten-4.0.2-win64.zip  -q --show-progress
 	
 ECHO #
 ECHO ############################
 ECHO # Extracting Wallet App... #
 ECHO ############################
 ECHO #
-unzip.exe "%InstallDir%\yenten-4.0.1.2-win64.zip" -d "%InstallDir%"
+unzip.exe "%InstallDir%\yenten-4.0.2-win64.zip" -d "%InstallDir%"
 
 rem Make data directory
 MD "%InstallDir%\data"
