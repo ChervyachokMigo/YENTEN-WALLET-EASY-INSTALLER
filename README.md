@@ -1,6 +1,8 @@
 # YENTEN-WALLET-EASY-INSTALLER
 AUTO-DOWNLOAD YENTEN WALLET APP + BLOCKCHAIN
 
+Installer download wallet 4.0.2 and install blockchain 17.02.21
+
 <h2>HOW INSTALL</h2>
 
 1. Start <b>install_yenten_wallet.bat<b>
