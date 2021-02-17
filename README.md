@@ -8,3 +8,7 @@ AUTO-DOWNLOAD YENTEN WALLET APP + BLOCKCHAIN
 3. Wait end program
 4. <b>Choose 'data' folder under wallet directory when wallet will start</b>
 6. Enjoy to use!
+
+<h2>DOWNLOAD</h2>
+
+* <a href="https://github.com/ChervyachokMigo/YENTEN-WALLET-EASY-INSTALLER/releases/download/latest/YENTEN.WALLET.EASY.INSTALLER.RELEASE.WINDOWS.X64.rar">YENTEN.WALLET.EASY.INSTALLER.RELEASE.WINDOWS.X64.rar</a>
