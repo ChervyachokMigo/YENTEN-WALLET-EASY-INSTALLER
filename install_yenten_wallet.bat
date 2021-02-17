@@ -36,6 +36,7 @@ ECHO # Extracting Wallet App... #
 ECHO ############################
 ECHO #
 unzip.exe "%InstallDir%\yenten-4.0.2-win64.zip" -d "%InstallDir%"
+MOVE "%InstallDir%\yenten-4.0.2-win64\*.*" "%InstallDir%"
 
 rem Make data directory
 MD "%InstallDir%\data"
@@ -56,8 +57,9 @@ unrar.exe x -idd -y -o+ -ilog "%InstallDir%\blockchain.rar" *.* "%InstallDir%\da
 
 rem delete tmp files
 del /F /Q "%InstallDir%\blockchain.rar"
-del /F /Q "%InstallDir%\yenten-4.0.1.2-win64.zip"
+del /F /Q "%InstallDir%\yenten-4.0.2-win64-win64.zip"
 del /F /Q .wget-hsts
+rmdir "%InstallDir%\yenten-4.0.2-win64"
 
 rem create icon
 nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "YENTEN Wallet" "" "%InstallDir%\yenten-qt.exe" 
