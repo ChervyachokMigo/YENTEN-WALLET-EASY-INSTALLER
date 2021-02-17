@@ -9,7 +9,9 @@ echo # Welcome to YENTEN Wallet Installer! #
 echo #######################################
 echo #
 set /P tempdestination="# Enter destination (C:\YENTEN Wallet): "
-
+IF "%tempdestination%" == "" (
+	set tempdestination=C:\YENTEN Wallet
+)
 
 :tryagain
 if exist "%tempdestination%" (
@@ -74,9 +76,6 @@ if exist "%tempdestination%" (
 	  echo #
 	  echo # Creating Folder...
 	  echo #
-	  IF "%tempdestination%" == "" (
-	  	set tempdestination=C:\YENTEN Wallet
-	  )
 	  MD "%tempdestination%"
 	  cd %tempdestination%
 	  SET installdir=%cd%\%tempdestination%
