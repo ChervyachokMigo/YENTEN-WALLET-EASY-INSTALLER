@@ -61,14 +61,14 @@ del /F /Q .wget-hsts
 
 rem create icon
 nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "YENTEN Wallet" "" "%InstallDir%\yenten-qt.exe" 
-nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "CHOOSE DATA - YENTEN Wallet AND START WALLET" "-choosedir" "%InstallDir%\yenten-qt.exe" 
+nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "CHOOSE DATA - YENTEN Wallet AND START WALLET" "-choosedatadir" "%InstallDir%\yenten-qt.exe" 
   
 CLS
 ECHO ######################
 ECHO # Starting Wallet... #
 ECHO ######################
 
-start "YENTEN Wallet" /D "%InstallDir%" /B yenten-qt.exe -choosedir
+start "YENTEN Wallet" /D "%InstallDir%" /B yenten-qt.exe -choosedatadir
 
 COLOR C
 
