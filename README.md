@@ -12,7 +12,7 @@ Installer download wallet 4.0.2 and install blockchain 17.02.21
 
 <img src=https://i.imgur.com/7JL0gGo.png>
   
-6. Enjoy to use!
+5. Enjoy to use!
 
 <h2>DOWNLOAD</h2>
 
