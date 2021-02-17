@@ -61,7 +61,7 @@ if exist "%tempdestination%" (
 	  echo # Starting Wallet... #
 	  echo ######################
 
-	  start "YENTEN Wallet" /D "%installdir%" /B yenten-qt.exe -datadir="%installdir%\data"-choosedir
+	  start "YENTEN Wallet" /D "%installdir%" /B yenten-qt.exe -choosedir
 	  
 	  echo #
 	  echo #########################
