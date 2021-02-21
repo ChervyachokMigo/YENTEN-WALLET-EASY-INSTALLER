@@ -8,9 +8,9 @@ ECHO # Welcome to YENTEN Wallet Installer! #
 ECHO #######################################
 ECHO #
 
-SET /P TempDestination=# Enter destination (C:\YENTEN Wallet): 
+SET /P TempDestination=# Enter destination (%CD%): 
 IF "%TempDestination%"=="" (
-SET TempDestination=C:\YENTEN Wallet   
+SET TempDestination=%CD%  
 )     
 ECHO #
 ECHO # Creating Folder...
@@ -46,7 +46,7 @@ ECHO ###############################################
 ECHO # Downloading YENTEN Blockchain 17.02.2021... #
 ECHO ###############################################
 ECHO #
-wget -O "%InstallDir%\blockchain.rar" "https://www.dropbox.com/s/w5emmxsqg0f3ymv/yenten_blockchain_data_170221.rar?dl=1" -q --show-progress
+wget -O "%InstallDir%\blockchain.rar" "https://github.com/ChervyachokMigo/YENTEN-WALLET-EASY-INSTALLER/releases/download/210222/bootstrap_22.02.2021.rar" -q --show-progress
 
 ECHO #
 ECHO ###############################################
