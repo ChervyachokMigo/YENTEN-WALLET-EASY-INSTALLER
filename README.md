@@ -1,7 +1,7 @@
 # YENTEN-WALLET-EASY-INSTALLER
 AUTO-DOWNLOAD YENTEN WALLET APP + BLOCKCHAIN
 
-Installer download wallet 4.0.2 and install blockchain 17.02.21
+Installer download wallet 4.0.2 and install blockchain 22.02.21
 
 <h2>HOW INSTALL</h2>
 
@@ -20,4 +20,4 @@ Installer download wallet 4.0.2 and install blockchain 17.02.21
 
 YENTEN WALLET VERSION 4.0.2
 
-BLOCKCHAIN 17.02.21
+BLOCKCHAIN 22.02.21
