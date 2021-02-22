@@ -42,11 +42,11 @@ rem Make data directory
 MD "%InstallDir%\data"
 
 CLS
-ECHO ###############################################
-ECHO # Downloading YENTEN Blockchain 17.02.2021... #
-ECHO ###############################################
+ECHO ################################################
+ECHO # Downloading YENTEN Blockchain (bootstrap)... #
+ECHO ################################################
 ECHO #
-wget -O "%InstallDir%\blockchain.rar" "https://github.com/ChervyachokMigo/YENTEN-WALLET-EASY-INSTALLER/releases/download/210222/bootstrap_22.02.2021.rar" -q --show-progress
+wget -O "%InstallDir%\blockchain.rar" "https://github.com/ChervyachokMigo/YENTEN-WALLET-EASY-INSTALLER/releases/download/bootstrap/bootstrap.rar" -q --show-progress
 
 ECHO #
 ECHO ###############################################
@@ -93,5 +93,7 @@ ECHO #########################
 pause
 
 endlocal
+
+COLOR 0F
 
 exit /B
