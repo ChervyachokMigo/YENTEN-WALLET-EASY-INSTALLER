@@ -9,6 +9,7 @@ Installer download original wallet 4.0.2 and install blockchain 22.02.21
 2. Start <b>install_yenten_wallet.bat<b>
 3. Enter absolute or relative destination directory of YENTEN Wallet
 4. Wait end program
+
 Enjoy to use!
 
 <h2>DOWNLOAD</h2>
