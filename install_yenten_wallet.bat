@@ -28,15 +28,15 @@ ECHO #############################
 ECHO # Downloading Wallet App... #
 ECHO #############################
 ECHO #
-wget.exe -P "%InstallDir%" -nc https://github.com/yentencoin/yenten/releases/download/4.0.2/yenten-4.0.2-win64.zip  -q --show-progress
+wget.exe -P "%InstallDir%" -nc https://github.com/yentencoin/yenten/releases/download/4.0.3/yenten-4.0.3.1-win64.zip  -q --show-progress
 	
 ECHO #
 ECHO ############################
 ECHO # Extracting Wallet App... #
 ECHO ############################
 ECHO #
-unzip.exe "%InstallDir%\yenten-4.0.2-win64.zip" -d "%InstallDir%"
-MOVE "%InstallDir%\yenten-4.0.2-win64\*.*" "%InstallDir%"
+unzip.exe "%InstallDir%\yenten-4.0.3.1-win64.zip" -d "%InstallDir%"
+rem MOVE "%InstallDir%\yenten-wallet\*.*" "%InstallDir%"
 
 rem Make data directory
 MD "%InstallDir%\data"
@@ -57,9 +57,9 @@ unrar.exe x -idd -y -o+ -ilog "%InstallDir%\blockchain.rar" *.* "%InstallDir%\da
 
 rem delete tmp files
 del /F /Q "%InstallDir%\blockchain.rar"
-del /F /Q "%InstallDir%\yenten-4.0.2-win64.zip"
+del /F /Q "%InstallDir%\yenten-4.0.3.1-win64.zip"
 del /F /Q .wget-hsts
-rmdir "%InstallDir%\yenten-4.0.2-win64"
+rem rmdir "%InstallDir%\yenten-4.0.2-win64"
 
 rem create icon
 nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "YENTEN Wallet" "" "%InstallDir%\yenten-qt.exe" 
