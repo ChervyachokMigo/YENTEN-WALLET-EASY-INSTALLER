@@ -1,5 +1,5 @@
 @ECHO off                               
-COLOR 9
+COLOR 0F
 CLS
 SETLOCAL enableextensions
 
@@ -10,7 +10,7 @@ ECHO #
 
 SET /P TempDestination=# Enter destination (%CD%): 
 IF "%TempDestination%"=="" (
-SET TempDestination=%CD%  
+SET TempDestination=%CD%
 )     
 ECHO #
 ECHO # Creating Folder...
@@ -29,7 +29,7 @@ ECHO # Downloading Wallet App... #
 ECHO #############################
 ECHO #
 wget.exe -P "%InstallDir%" -nc https://github.com/yentencoin/yenten/releases/download/4.0.3/yenten-4.0.3.1-win64.zip  -q --show-progress
-	
+
 ECHO #
 ECHO ############################
 ECHO # Extracting Wallet App... #
@@ -59,28 +59,23 @@ rem delete tmp files
 del /F /Q "%InstallDir%\blockchain.rar"
 del /F /Q "%InstallDir%\yenten-4.0.3.1-win64.zip"
 del /F /Q .wget-hsts
-rem rmdir "%InstallDir%\yenten-4.0.2-win64"
+rem rmdir "%InstallDir%\yenten-wallet"
 
 rem create icon
-nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "YENTEN Wallet" "" "%InstallDir%\yenten-qt.exe" 
-nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "CHOOSE DATA - YENTEN Wallet AND START WALLET" "-choosedatadir" "%InstallDir%\yenten-qt.exe" 
-  
+nircmd shortcut "%InstallDir%\yenten-qt.exe" "~$folder.desktop$" "Start YENTEN Wallet" "" "%InstallDir%\yenten-qt.exe"
+nircmd shortcut "%InstallDir%\yenten-qt.exe" "%InstallDir%" "Start YENTEN Wallet" "" "%InstallDir%\yenten-qt.exe"
+nircmd shortcut "%InstallDir%\yenten-qt.exe" "%InstallDir%" "CHOOSE DATA OF YENTEN WALLET" "-choosedatadir" "%InstallDir%\yenten-qt.exe"
+
+rem save in registry
+REG ADD HKEY_CURRENT_USER\Software\Yenten\Yenten-Qt /v strDataDir /t REG_SZ /d "%InstallDir%\data" /f
+
+
 CLS
 ECHO ######################
 ECHO # Starting Wallet... #
 ECHO ######################
 
-start "YENTEN Wallet" /D "%InstallDir%" /B yenten-qt.exe -choosedatadir
-
-COLOR C
-
-ECHO #
-ECHO #################################################
-ECHO #  Choose 'data' folder under wallet directory  #
-ECHO #  when wallet will start and prompt it         #
-ECHO #################################################
-
-pause
+start "YENTEN Wallet" /D "%InstallDir%" /B yenten-qt.exe
 
 CLS
 COLOR A
